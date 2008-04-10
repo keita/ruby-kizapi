@@ -5,3 +5,4 @@ README.txt
 Rakefile
 lib/kizapi.rb
 spec/kizapi_spec.rb
+setup.rb
