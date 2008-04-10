@@ -4,15 +4,24 @@ require "rss"
 require "time"
 
 # import Dublin Core into RSS 2.0
-module RSS
-  class Rss
+module RSS #:nodoc:
+  class Rss #:nodoc:
     install_ns(DC_PREFIX, DC_URI)
-    class Channel; include DublincoreModel; end
-    class Channel::Item; include DublincoreModel; end
+    class Channel; include DublincoreModel; end #:nodoc:
+    class Channel::Item; include DublincoreModel; end #:nodoc:
   end
 end
 
 module KizAPI
+  module Version #:nodoc:
+    MAJOR = 0
+    MINOR = 2
+    TINY  = 0
+
+    STRING = [MAJOR, MINOR, TINY].join('.')
+  end
+
+  VERSION = Version::STRING
 
   # RelatedWords is a class for searching related words of a keyword.
   class RelatedWords < Array
