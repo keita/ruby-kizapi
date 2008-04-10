@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      ruby-kizapi
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+<div id="main">
+
+    <h1>ruby-kizapi</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/kizapi"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/kizapi" class="numbers">0.1.0</a>
+    </div>
+    <h2>What</h2>
+
+
+	<p>ruby-kizapi is a wrapper library for kizAPI provided by kizasi.jp.</p>
+
+
+	<h2>Installing</h2>
+
+
+	<p><pre class='syntax'><span class="ident">sudo</span> <span class="ident">gem</span> <span class="ident">install</span> <span class="ident">kizapi</span></pre></p>
+
+
+	<h2><span class="caps">API</span> document</h2>
+
+
+	<p><a href="http://kizapi.rubyforge.org/rdoc">http://kizapi.rubyforge.org/rdoc</a></p>
+
+
+	<h2>The basics</h2>
+
+
+	<h3>Related words</h3>
+
+
+	<p><pre class='syntax'>
+<span class="ident">words</span> <span class="punct">=</span> <span class="constant">KizAPI</span><span class="punct">::</span><span class="constant">RelatedWords</span><span class="punct">.</span><span class="ident">new</span><span class="punct">(&quot;</span><span class="string">正月</span><span class="punct">&quot;)</span>
+
+<span class="comment"># =&gt; [&quot;休み&quot;, &quot;仕事&quot;, &quot;いい&quot;, &quot;実家&quot;, &quot;大晦日&quot;, &quot;家&quot;, &quot;大掃除&quot;, &quot;予定&quot;, &quot;雪&quot;,</span>
+<span class="comment">#     &quot;良い&quot;, &quot;行く&quot;, &quot;飾り&quot;, &quot;掃除&quot;, &quot;準備&quot;, &quot;正月用&quot;, &quot;餅&quot;, &quot;お正月&quot;,</span>
+<span class="comment">#     &quot;買い物&quot;, &quot;感じ&quot;, &quot;2日&quot;, &quot;年賀状&quot;, &quot;元旦&quot;, &quot;クリスマス&quot;, &quot;ブログ&quot;, &quot;最後&quot;,</span>
+<span class="comment">#     &quot;迎える&quot;, &quot;家族&quot;, &quot;一年&quot;, &quot;年末年始&quot;, &quot;我が家&quot;, &quot;明け&quot;, &quot;帰省&quot;,</span>
+<span class="comment">#     &quot;正月準備&quot;, &quot;1日&quot;, &quot;1年&quot;, &quot;おせち&quot;, &quot;来る&quot;, &quot;お年&quot;, &quot;終わり&quot;, &quot;過ごす&quot;,</span>
+<span class="comment">#     &quot;3日&quot;, &quot;車&quot;, &quot;更新&quot;, &quot;買い&quot;, &quot;買出し&quot;, &quot;年越し&quot;, &quot;無い&quot;, &quot;スーパー&quot;,</span>
+<span class="comment">#     &quot;正月用品&quot;, &quot;正月気分&quot;, &quot;お餅&quot;, &quot;夜&quot;, &quot;鏡餅&quot;, &quot;お年玉&quot;, &quot;正月前&quot;,</span>
+<span class="comment">#     &quot;正月料理&quot;, &quot;初詣&quot;, &quot;2007年&quot;, &quot;寒い&quot;, &quot;年明け&quot;]</span>
+
+<span class="ident">words</span><span class="punct">.</span><span class="ident">date</span>
+<span class="comment"># =&gt; Mon Dec 31 05:46:56 0900 2007</span>
+</pre></p>
+
+
+	<h3>Keyword in context</h3>
+
+
+	<p><pre class='syntax'>
+<span class="ident">contexts</span> <span class="punct">=</span> <span class="constant">KizAPI</span><span class="punct">::</span><span class="constant">KeywordInContexts</span><span class="punct">.</span><span class="ident">new</span><span class="punct">(&quot;</span><span class="string">正月</span><span class="punct">&quot;)</span>
+
+<span class="ident">context</span> <span class="punct">=</span> <span class="ident">contexts</span><span class="punct">.</span><span class="ident">first</span>
+<span class="comment"># =&gt; [&quot;醤油で焼いて海苔巻いたやつ。&quot;, &quot;あと数時間後には正月でいらんほど餅食べれるの</span>
+<span class="comment"># に、どんだけフライングだよ。&quot;, &quot;太りたくない。&quot;]</span>
+
+<span class="ident">context</span><span class="punct">.</span><span class="ident">title</span>
+<span class="comment"># =&gt; &quot;食欲&quot;</span>
+
+<span class="ident">context</span><span class="punct">.</span><span class="ident">link</span>
+<span class="comment"># =&gt; #&lt;URI::HTTP:0xfdbcd4032 URL:http://ameblo.jp/monakalife/entry-10063060988.html&gt;</span>
+
+<span class="ident">contexts</span><span class="punct">.</span><span class="ident">date</span>
+<span class="comment"># =&gt; Mon Dec 31 05:57:37 0900 2007</span>
+</pre></p>
+
+
+	<h3>Ranking</h3>
+
+
+	<p><pre class='syntax'>
+<span class="ident">ranking</span> <span class="punct">=</span> <span class="constant">KizAPI</span><span class="punct">::</span><span class="constant">Ranking</span><span class="punct">.</span><span class="ident">new</span>
+<span class="comment"># =&gt; [&quot;イカ天2007復活祭&quot;, &quot;KEIRINグランプリ07&quot;, &quot;ゴーオンジャー&quot;, &quot;最優秀歌唱賞&quot;,</span>
+<span class="comment">#     &quot;大晦日イブ&quot;, &quot;大晦日イヴ&quot;, &quot;代打屋&quot;, &quot;生つるべ&quot;, &quot;冬コミ2日&quot;,</span>
+<span class="comment">#     &quot;お笑いダイナマイト&quot;, &quot;お迎え下&quot;, &quot;ココリコ遠藤&quot;, &quot;コミケ73&quot;, &quot;吉原炎上&quot;,</span>
+<span class="comment">#     &quot;伸し餅&quot;, &quot;フライングキッズ&quot;, &quot;お節作り&quot;, &quot;AVP2&quot;, &quot;C73&quot;, &quot;お正月準備&quot;,</span>
+<span class="comment">#     &quot;鏡音リン・レン&quot;, &quot;MVS&quot;, &quot;大掃除終了&quot;, &quot;餅搗き&quot;, &quot;オールザッツ漫才&quot;,</span>
+<span class="comment">#     &quot;元首相暗殺&quot;, &quot;アイアムレジェンド&quot;, &quot;ルビン&quot;, &quot;天皇杯準決勝&quot;, &quot;寒波襲来&quot;]</span>
+
+<span class="ident">ranking</span><span class="punct">.</span><span class="ident">date</span>
+<span class="comment"># =&gt; Mon Dec 31 05:46:54 0900 2007</span>
+</pre></p>
+
+
+	<h3>Channel words</h3>
+
+
+	<p><pre class='syntax'>
+<span class="ident">words</span> <span class="punct">=</span> <span class="constant">KizAPI</span><span class="punct">::</span><span class="constant">ChannelWords</span><span class="punct">.</span><span class="ident">new</span><span class="punct">(&quot;</span><span class="string">正月</span><span class="punct">&quot;)</span>
+<span class="comment"># =&gt; [&quot;大根&quot;, &quot;栗&quot;, &quot;ねぎ&quot;, &quot;滝沢秀明(タッキー＆翼)&quot;, &quot;サクラ&quot;, &quot;ごぼう&quot;,</span>
+<span class="comment">#     &quot;ギター&quot;, &quot;北野天満宮（京都府）&quot;, &quot;にんじん&quot;, &quot;かぼちゃ&quot;, &quot;朝青龍&quot;,</span>
+<span class="comment">#     &quot;二宮和也(嵐)&quot;, &quot;カレイ&quot;, &quot;マンリョウ&quot;, &quot;椎茸&quot;, &quot;白菜&quot;, &quot;れんこん&quot;,</span>
+<span class="comment">#     &quot;梅&quot;, &quot;沖縄の旅&quot;, &quot;東京の旅&quot;]</span>
+
+<span class="ident">words</span><span class="punct">.</span><span class="ident">date</span>
+<span class="comment"># =&gt; Mon Dec 31 06:04:07 0900 2007</span>
+
+<span class="ident">words</span><span class="punct">.</span><span class="ident">first</span><span class="punct">.</span><span class="ident">subject</span>
+<span class="comment"># =&gt; &quot;野菜&quot;</span>
+</pre></p>
+
+
+	<h2>Forum</h2>
+
+
+	<p><a href="http://groups.google.com/group/ruby-kizapi">http://groups.google.com/group/kizapi</a></p>
+
+
+	<h2>How to submit patches</h2>
+
+
+	<p>Read the <a href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/">8 steps for fixing other people&#8217;s code</a> and for section <a href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups">8b: Submit patch to Google Groups</a>, use the Google Group above.</p>
+
+
+	<p>The trunk repository is <code>svn://rubyforge.org/var/svn/kizapi/trunk</code> for anonymous access.</p>
+
+
+	<h2>License</h2>
+
+
+	<p>This code is free to use under the terms of the Ruby license.</p>
+
+
+	<h2>Links</h2>
+
+
+	<ul>
+	<li><a href="http://kizasi.jp/">kizasi.jp</a>
+	<ul>
+	<li><a href="http://kizasi.jp/tool/kizapi.html">kizAPI</a></li>
+		<li><a href="http://blog.kizasi.jp/kizasi/images/kizapi_TOS.pdf" title="PDF">kizAPI利用規約</a></li>
+	</ul>
+	</li>
+		<li>ruby-kizapi
+	<ul>
+	<li><a href="http://kizapi.rubyforge.org/">Website</a></li>
+		<li><a href="http://rubyforge.org/projects/kizapi/">Rubyforge Project</a></li>
+	</ul></li>
+	</ul>
+
+
+	<h2>Contact</h2>
+
+
+	<p>Comments are welcome. Send an email to <a href="mailto:keita.yamaguchi@gmail.com">Keita Yamaguchi</a> or the <a href="http://groups.google.com/group/ruby-kizapi">forum</a></p>
+    <p class="coda">
+      <a href="keita.yamaguchi@gmail.com">Keita Yamaguchi</a>, 31st December 2007<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
+</html>

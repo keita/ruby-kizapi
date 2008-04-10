@@ -1,0 +1,4 @@
+== 0.1.0 2007-12-31
+
+* Keita Yamaguchi:
+  * Initial release
