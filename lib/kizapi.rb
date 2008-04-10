@@ -7,8 +7,12 @@ require "time"
 module RSS #:nodoc:
   class Rss #:nodoc:
     install_ns(DC_PREFIX, DC_URI)
-    class Channel; include DublincoreModel; end #:nodoc:
-    class Channel::Item; include DublincoreModel; end #:nodoc:
+    class Channel #:nodoc:
+      include DublincoreModel
+    end
+    class Channel::Item #:nodoc:
+      include DublincoreModel
+    end
   end
 end
 
