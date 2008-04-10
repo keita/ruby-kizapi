@@ -1,17 +1,21 @@
-= README
+= ruby-kizapi
 
-Authors::   Keita Yamaguchi(山口慶太)
-Copyright:: Copyright (C) Keita Yamaguchi, 2007. All rights reserved.
+Author::    Keita Yamaguchi(山口 慶太) <keita.yamaguchi@gmail.com>
+Copyright:: © Keita Yamaguchi, 2007ー2008. All rights reserved.
 License::   Ruby License
 
-== What
+ruby-kizapi is a wrapper library for {kizAPI}[http://kizasi.jp/tool/kizapi.html] provided by {kizasi.jp}[http://kizasi.jp/].
 
-ruby-kizapi is a wrapper library for kizAPI provided by kizasi.jp.
+== Usage
+
+See {the documentation}[http://github.com/keita/ruby-kizapi/wikis].
 
 == Links
 
 * {kizasi.jp}[http://kizasi.jp/]
   * {kizAPI}[http://kizasi.jp/tool/kizapi.html]
 * ruby-kizapi
-  * {Website}[http://kizapi.rubyforge.org/]
-  * {Rubyforge Project}[http://rubyforge.org/projects/kizapi/]
+  * {Rubyforge}[http://rubyforge.org/projects/kizapi/]
+  * {GitHub}[http://github.com/keita/ruby-kizapi/tree/master]
+* author's blog(written in Japanese)
+  * {¬¬日常日記}[http://d.hatena.ne.jp/keita_yamaguchi/]
