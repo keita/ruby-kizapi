@@ -18,7 +18,7 @@ $config =
 
 require 'rake/clean'
 
-CLEAN.include ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']
+CLEAN.include ['**/.*.sw?', '*.gem', '*.tgz', '.config', '**/.DS_Store']
 
 #
 # RDoc
