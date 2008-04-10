@@ -1,0 +1,9 @@
+--- 
+:email: keita.yamaguchi@gmail.com
+:has_rdoc: true
+:homepage: http://rubyforge.org/projects/kizapi/
+:name: kizapi
+:rubyforge_project: kizapi
+:version: 0.2.0
+:author: Keita Yamaguchi
+:summary: ruby-kizapi is a wrapper library for kizAPI provided by kizasi.jp.
