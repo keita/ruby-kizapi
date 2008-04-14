@@ -1,0 +1,36 @@
+$KCODE = "UTF-8"
+require "rubygems"
+require "kizapi"
+require "optparse"
+
+$type = "day"
+
+Option = OptionParser.new do |opt|
+  opt.banner = "Usage: kizapi-channelwords [options] word"
+
+  opt.on("--day") do
+    $type = "day"
+  end
+
+  opt.on("--week") do
+    $type = "week"
+  end
+
+  opt.on("--month") do
+    $type = "month"
+  end
+
+  opt.on("--help") do
+    puts opt.help
+  end
+
+  opt.parse!(ARGV)
+end
+
+if word = ARGV[0]
+  words = KizAPI::ChannelWords.new(word)
+  puts words
+  puts words.date
+else
+  puts Option.help
+end

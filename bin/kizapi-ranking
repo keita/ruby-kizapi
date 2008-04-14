@@ -1,0 +1,7 @@
+$KCODE = "UTF-8"
+require "rubygems"
+require "kizapi"
+
+ranking = KizAPI::Ranking.new
+puts ranking
+puts ranking.date

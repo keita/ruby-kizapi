@@ -1,0 +1,30 @@
+$KCODE = "UTF-8"
+require "rubygems"
+require "kizapi"
+require "optparse"
+
+$type = "day"
+
+Option = OptionParser.new do |opt|
+  opt.banner = "Usage: kizapi-kwic word"
+
+  opt.on("--help") do
+    puts opt.help
+  end
+
+  opt.parse!(ARGV)
+end
+
+if word = ARGV[0]
+  KizAPI::KWIC.new(word).each_with_index do |context, idx|
+    puts "=== Context #{idx + 1} ==="
+    puts "title: " + context.title
+    context.each_with_index do |sentence, i|
+      puts "#{i+1}: #{sentence}"
+    end
+    puts "link: " + context.link.to_s
+    puts "date:" + context.date.to_s
+  end
+else
+  puts Option.help
+end
