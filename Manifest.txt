@@ -4,5 +4,10 @@ Manifest.txt
 README.txt
 Rakefile
 lib/kizapi.rb
+bin/kizapi-channelwords
+bin/kizapi-kwic
+bin/kizapi-ranking
+bin/kizapi-relatedwords
 spec/kizapi_spec.rb
 setup.rb
+
