@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 $KCODE = "UTF-8"
 require "rubygems"
 require "kizapi"
