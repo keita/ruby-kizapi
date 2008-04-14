@@ -1,6 +1,14 @@
+== 0.3.0 2008-04-14
+
+* Keita Yamaguchi:
+  * Added bin/kizapi-channelwords
+  * Added kizapi-relatedwords
+  * Added kizapi-ranking
+  * Added kizapi-kwic
+
 == 0.2.0 2008-04-10
 
-* Keita Yamaguchi
+* Keita Yamaguchi:
   * Moved to GitHub: http://github.com/keita/ruby-kizapi/tree/master
   * Changed to use Bacon for spec
   * Added KizAPI::VERSION
@@ -9,5 +17,5 @@
 
 == 0.1.0 2007-12-31
 
-* Keita Yamaguchi
+* Keita Yamaguchi:
   * Initial release
